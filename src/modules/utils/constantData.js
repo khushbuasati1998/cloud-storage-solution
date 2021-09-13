@@ -32,3 +32,8 @@ export const folderCardList = [
         ]
     },
 ];
+
+export const homeTabList = [
+    { label: 'Files', value: 'Files' },
+    { label: 'Folders', value: 'Folders' }
+]

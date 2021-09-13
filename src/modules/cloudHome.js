@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
 import ROUTE_KEYS from '../constants/routeKeys';
-import { findIndex as _findIndex } from 'underscore';
 import clsx from 'clsx';
 // Load Material components
 import Grid from '@material-ui/core/Grid';
@@ -28,7 +27,6 @@ const CloudHome = (props) => {
     // css states
     const classes = useStyles();
 
-    const { location } = props.history;
     const url = props.match.url;
     const routeLinks = {
         home: url + ROUTE_KEYS.HOME,
@@ -78,22 +76,6 @@ const CloudHome = (props) => {
     ];
     // Top Menu icons ends here
 
-    useEffect(
-        () => {
-            setActiveScreen();
-        },
-        [location]
-    );
-
-    /**
-     * active current screen menu item
-     */
-    const setActiveScreen = () => {
-        const currentUrl = location.pathname;
-        const screenIndex = _findIndex(TOPBAR_TABS, { link: currentUrl });
-        setActiveScreenIndex(screenIndex > -1 ? screenIndex : 0);
-    };
-
     /**
      * 
      * @param {*} iconIndex selected menu item index
@@ -105,7 +87,7 @@ const CloudHome = (props) => {
 
     const renderViews = () => {
         return (
-            <Grid className={clsx({[classes.root]: activeScreenIndex !== 0 })}>
+            <Grid className={clsx({ [classes.root]: activeScreenIndex !== 0 })}>
                 <Route
                     exact={true}
                     path={routeLinks.notification}

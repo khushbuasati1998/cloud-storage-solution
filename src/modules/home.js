@@ -13,7 +13,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import TabStyles from '../constants/tabs';
 import FolderCard from '../commonComponents/folders';
-import { folderCardList } from './utils/constantData';
+import { folderCardList, homeTabList } from './utils/constantData';
 
 const HomePage = (props) => {
     // css states
@@ -23,11 +23,6 @@ const HomePage = (props) => {
 
     // Component states start here
     const [activeTab, setActiveTab] = useState(1);
-    const [tabsList, setTabsList] = useState([
-        { label: 'Files', value: 'Files' },
-        { label: 'Folders', value: 'Folders' }
-    ]);
-    const [folderList, setFolderList] = useState(folderCardList);
     // Component states ends here
 
     /**
@@ -94,7 +89,7 @@ const HomePage = (props) => {
                         scrollButtons="auto"
                     >
                         {
-                            tabsList.map((item, index) => {
+                            homeTabList.map((item, index) => {
                                 return (
                                     <Tab
                                         key={item.value}
@@ -115,7 +110,7 @@ const HomePage = (props) => {
                     alignItems="center"
                 >
                     {
-                        folderList.map((item) => (
+                        folderCardList.map((item) => (
                             <FolderCard data={item} />
                         ))
                     }

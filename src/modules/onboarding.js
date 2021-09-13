@@ -17,8 +17,13 @@ const Onboarding = (props) => {
         props.history.push(ROUTE_KEYS.baseURL + ROUTE_KEYS.HOME);
     };
     return (
-        <Grid>
-            <img src={onboardingImg} className={classes.imgRoot} alt="logo" onClick={gotoHomePage}/>
+        <Grid
+            container={true}
+            direction="row"
+            justify="center"
+            alignItems="center"
+        >
+            <img src={onboardingImg} className={classes.imgRoot} alt="logo" onClick={gotoHomePage} />
         </Grid>
     );
 }
